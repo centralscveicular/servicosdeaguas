@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>servicosdeaguas — Guia Editorial de Saneamento & Inteligência Hídrica</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['"Syne"', 'sans-serif'],
+          },
+          colors: {
+            obsidian: '#020617',
+            teal: {
+              300: '#5eead4',
+              400: '#2dd4bf',
+              500: '#14b8a6',
+              600: '#0d9488',
+              950: '#042f2e',
+            },
+            sky: {
+              400: '#38bdf8',
+              500: '#0ea5e9',
+              600: '#0284c7',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { background-color: #020617; color: #94a3b8; }
+    .glass-card { background: rgba(15, 23, 42, 0.75); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.08); }
+    .glass-card:hover { border-color: rgba(20, 184, 166, 0.4); transform: translateY(-3px); }
+    .glass-nav { background: rgba(2, 6, 23, 0.88); backdrop-filter: blur(24px); border-bottom: 1px solid rgba(255, 255, 255, 0.06); }
+    .gradient-hero-text { background: linear-gradient(135deg, #ffffff 0%, #2dd4bf 50%, #38bdf8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .aqua-glow { box-shadow: 0 0 35px rgba(20, 184, 166, 0.18); }
+    .img-fallback { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }
+  </style>
+</head>
+<body class="font-sans antialiased selection:bg-teal-500 selection:text-black">
+
+  <!-- AVISO TOPO DE TRANSPARÊNCIA INSTITUCIONAL -->
+  <div id="topDisclaimer" class="bg-slate-950 border-b border-teal-500/30 text-xs py-3 px-4 relative z-50">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3 pr-6">
+      <div class="flex items-start md:items-center gap-2">
+        <span class="inline-block px-2.5 py-0.5 bg-teal-500/20 text-teal-400 border border-teal-500/40 font-bold rounded text-[10px] uppercase tracking-wider shrink-0">Aviso Institucional</span>
+        <p class="text-slate-300 leading-tight">
+          O portal <strong class="text-white">servicosdeaguas</strong> é mantido e patrocinado editorialmente pela empresa <strong class="text-white">Giga Termicas Giga Comercio LTDA</strong> (CNPJ: 53.127.380/0001-96). A publicação tem finalidade exclusivamente <strong class="text-teal-400">editorial, informativa e educativa</strong> sobre saneamento, saúde pública, armazenamento térmico e pureza dos recursos hídricos. Não emitimos cobranças, não prestamos serviços públicos de abastecimento e não temos vínculo com concessionárias governamentais.
+        </p>
+      </div>
+      <button onclick="document.getElementById('topDisclaimer').style.display='none'" class="text-slate-400 hover:text-white transition-colors text-base font-bold ml-2">✕</button>
+    </div>
+  </div>
+
+  <!-- HEADER / NAVEGAÇÃO -->
+  <header class="sticky top-0 z-40 glass-nav">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- LOGOTIPO: servicosdeaguas -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-teal-500 via-sky-500 to-indigo-500 p-[1px] transition-transform group-hover:scale-105">
+          <div class="w-full h-full bg-slate-950 rounded-[11px] flex items-center justify-center">
+            <svg class="w-5 h-5 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L5.595 15.1a2 2 0 00-1.808.572l-.123.123a2 2 0 000 2.828l1.414 1.414a2 2 0 002.828 0l.123-.123a2 2 0 011.808-.572l2.387.477a6 6 0 003.86-.517l.318-.158a6 6 0 013.86-.517l2.387.477a2 2 0 001.808-.572l.123-.123a2 2 0 000-2.828l-1.414-1.414zM12 2C6.477 2 2 6.477 2 12c0 2.38.835 4.568 2.235 6.284L12 2l7.765 16.284C21.165 16.568 22 14.38 22 12c0-5.523-4.477-10-10-10z"/></svg>
+          </div>
+        </div>
+        <span class="font-display font-bold text-xl text-white tracking-tight">servicosde<span class="text-teal-400">aguas</span></span>
+      </a>
+
+      <!-- NAV DESKTOP -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+        <a href="#relacao-empresa" class="hover:text-teal-400 transition-colors">Conexão Institucional</a>
+        <a href="#pilares" class="hover:text-teal-400 transition-colors">Etapas de Tratamento</a>
+        <a href="#simulador" class="hover:text-teal-400 transition-colors">Simulador de Potabilidade</a>
+        <a href="#scanner" class="hover:text-teal-400 transition-colors">Diagnóstico Residencial</a>
+        <a href="#artigos" class="hover:text-teal-400 transition-colors">Guia Editorial</a>
+        <a href="#sobre" class="hover:text-teal-400 transition-colors">Transparência CNPJ</a>
+      </nav>
+
+      <!-- BOTÃO DE LIGAÇÃO / CONTATO -->
+      <a href="tel:3530686010" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-teal-500/20 to-sky-500/20 border border-teal-500/40 text-teal-300 hover:border-sky-400 font-semibold text-xs uppercase tracking-wider transition-all shadow-lg shadow-teal-500/10">
+        <span class="w-2 h-2 rounded-full bg-teal-400 animate-ping"></span>
+        Redação: (35) 3068-6010
+      </a>
+    </div>
+  </header>
+
+  <!-- HERO SECTION CONCEITUAL -->
+  <section class="relative py-20 sm:py-28 overflow-hidden border-b border-slate-900">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-teal-900/25 via-slate-950 to-slate-950"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-7 space-y-6">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-slate-800 text-xs text-teal-400 shadow-md">
+            <span>💧 Portal de Inteligência Hídrica & Saneamento 2026</span>
+          </div>
+          <h1 class="font-display text-4xl sm:text-6xl font-extrabold leading-[1.1]">
+            A engenharia do <span class="gradient-hero-text">tratamento de água e saneamento</span> explicada.
+          </h1>
+          <p class="text-base sm:text-lg text-slate-400 max-w-2xl leading-relaxed">
+            Seu canal informativo independente sobre coagulação, filtração por membranas, estações de tratamento (ETA e ETE), conservação térmica e preservação dos recursos hídricos.
+          </p>
+
+          <!-- DESTAQUE DIRETO DA RELAÇÃO COM A EMPRESA -->
+          <div class="p-4 rounded-2xl bg-teal-950/40 border border-teal-500/30 text-xs text-slate-300 space-y-1">
+            <span class="font-bold text-teal-400 uppercase tracking-wider block">Por que a Giga Térmicas apoia este portal?</span>
+            <p class="leading-relaxed">
+              A <strong class="text-white">Giga Termicas Giga Comercio LTDA</strong> atua diretamente com soluções de conservação térmica e acondicionamento de líquidos. Compreender os padrões de potabilidade, estabilidade térmica e limpeza de reservatórios é essencial para manter a água segura e livre de proliferação microbiológica.
+            </p>
+          </div>
+          
+          <div class="flex flex-wrap gap-4 pt-2">
+            <a href="#pilares" class="w-full sm:w-auto text-center px-7 py-4 rounded-xl bg-gradient-to-r from-teal-500 to-sky-600 text-slate-950 font-bold hover:brightness-110 transition-all shadow-lg shadow-teal-500/25">
+              Explorar Processos de Tratamento
+            </a>
+            <a href="#simulador" class="w-full sm:w-auto text-center px-7 py-4 rounded-xl bg-slate-900 text-white font-semibold hover:bg-slate-800 border border-slate-800 transition-all">
+              Simulador de Potabilidade
+            </a>
+          </div>
+
+          <!-- MÉTRICAS HÍDRICAS -->
+          <div class="grid grid-cols-3 gap-4 pt-6 border-t border-slate-900">
+            <div>
+              <span class="block text-2xl font-bold font-display text-white">pH 6.5 - 9.5</span>
+              <span class="text-xs text-slate-500 uppercase tracking-wider">Portaria Min. Saúde</span>
+            </div>
+            <div>
+              <span class="block text-2xl font-bold font-display text-teal-400">ETA / ETE</span>
+              <span class="text-xs text-slate-500 uppercase tracking-wider">Normas Técnicas</span>
+            </div>
+            <div>
+              <span class="block text-2xl font-bold font-display text-sky-400">100%</span>
+              <span class="text-xs text-slate-500 uppercase tracking-wider">Guia Informativo</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5">
+          <div class="glass-card rounded-3xl p-6 relative overflow-hidden aqua-glow">
+            <!-- HERO IMAGE COM SISTEMA DE FALLBACK AUTOMÁTICO -->
+            <div class="relative h-64 sm:h-72 rounded-2xl overflow-hidden mb-6 img-fallback">
+              <img src="https://img.magnific.com/fotos-gratis/vista-aerea-de-tanques-de-decantacao-circulares-na-estacao-de-tratamento-de-esgoto-de-gold-coast_1308-189443.jpg?semt=ais_hybrid&w=740&q=80" 
+                   alt="Estação de Tratamento de Água" 
+                   onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\"w-full h-full flex items-center justify-center p-6 text-teal-400\"><svg class=\"w-24 h-24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path d=\"M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z\"/><circle cx=\"12\" cy=\"14\" r=\"3\"/></svg></div>';" 
+                   class="w-full h-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+              <div class="absolute bottom-4 left-4 right-4">
+                <span class="text-[10px] font-bold uppercase tracking-widest text-teal-400 bg-teal-950/90 border border-teal-800 px-2.5 py-1 rounded">Infraestrutura Sanitária</span>
+                <h3 class="text-white font-bold text-lg mt-1">Estações de Tratamento de Água (ETA)</h3>
+              </div>
+            </div>
+            
+            <div class="space-y-3">
+              <div class="flex items-center justify-between text-xs text-slate-400 pb-2 border-b border-slate-800">
+                <span>Padrão Sanitário Recomendado:</span>
+                <span class="text-teal-400 font-mono font-semibold">● Floculação & Cloração</span>
+              </div>
+              <p class="text-xs text-slate-400 leading-relaxed">
+                As estações de tratamento operam processos físico-químicos e microbiológicos contínuos para garantir que a água atinja o grau de potabilidade exigido por lei.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO EXPLÍCITA DA RELAÇÃO DA EMPRESA COM O PORTAL -->
+  <section id="relacao-empresa" class="py-20 border-b border-slate-900 bg-slate-950/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="glass-card p-8 sm:p-12 rounded-3xl border border-teal-500/30 relative">
+        <div class="grid lg:grid-cols-12 gap-8 items-center">
+          <div class="lg:col-span-8 space-y-4">
+            <span class="px-3 py-1 rounded-full bg-teal-500/10 text-teal-400 text-xs font-bold uppercase tracking-wider">Entenda a Conexão</span>
+            <h2 class="font-display text-3xl font-bold text-white">Por que a Giga Térmicas mantém um portal informativo sobre Saneamento?</h2>
+            <div class="space-y-3 text-slate-300 text-sm leading-relaxed">
+              <p>
+                A <strong class="text-white">Giga Termicas Giga Comercio LTDA</strong> atua no segmento de soluções térmicas e acondicionamento de bebidas e líquidos. No dia a dia dos consumidores, a qualidade da água armazenada depende tanto do <strong class="text-teal-400">tratamento recebido na rede pública</strong> quanto das <strong class="text-teal-400">condições térmicas e higiênicas dos recipientes e reservatórios</strong>.
+              </p>
+              <p>
+                Variações bruscas de temperatura e falta de saneamento adequado aceleram a proliferação de microrganismos e comprometem a potabilidade da água para consumo humano.
+              </p>
+              <p>
+                Como parte de sua iniciativa de responsabilidade educativa e socioambiental, a empresa mantém o portal <strong class="text-white">servicosdeaguas</strong> para disseminar conhecimento técnico sobre tratamento de água, conservação hídrica e cuidados essenciais com reservatórios.
+              </p>
+            </div>
+          </div>
+
+          <div class="lg:col-span-4 bg-slate-900 p-6 rounded-2xl border border-slate-800 space-y-4 text-xs">
+            <div class="flex items-center gap-3 pb-3 border-b border-slate-800">
+              <div class="w-10 h-10 rounded-xl bg-teal-500/20 text-teal-400 flex items-center justify-center font-bold text-lg">🌡️</div>
+              <div>
+                <strong class="text-white block text-sm">Água, Temperatura & Pureza</strong>
+                <span class="text-slate-400">Sinergia de Conservação</span>
+              </div>
+            </div>
+            <ul class="space-y-2 text-slate-300">
+              <li class="flex items-center gap-2">✔ <span>Estabilidade térmica preserva a potabilidade</span></li>
+              <li class="flex items-center gap-2">✔ <span>Prevenção contra biofilme em reservatórios</span></li>
+              <li class="flex items-center gap-2">✔ <span>Conscientização sobre uso racional da água</span></li>
+              <li class="flex items-center gap-2">✔ <span>Conteúdo 100% gratuito e educativo</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRINCIPAIS PILARES DE TRATAMENTO DE ÁGUA E ESGOTO -->
+  <section id="pilares" class="py-24 border-b border-slate-900 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-bold text-teal-400 uppercase tracking-widest">Processos Sanitários</span>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold text-white mt-2">Etapas Fundamentais de Tratamento e Saneamento</h2>
+        <p class="text-slate-400 text-sm mt-3">Compreenda a sequência de engenharia necessária para transformar a água bruta em água própria para o consumo humano.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- Card 1 -->
+        <div class="glass-card p-8 rounded-3xl relative flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-teal-500/10 border border-teal-500/20 text-teal-400 flex items-center justify-center text-2xl mb-6">
+              🧪
+            </div>
+            <h3 class="text-white font-bold text-xl mb-3">Coagulação & Floculação</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">
+              Adição de coagulantes químicos (como sulfato de alumínio) para aglutinar partículas microscópicas em suspensão, formando flocos densos.
+            </p>
+          </div>
+          <div class="mt-8 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs">
+            <span class="text-teal-400 font-semibold">Fase Físico-Química</span>
+            <span class="text-slate-500">ETA Etapa 1</span>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="glass-card p-8 rounded-3xl relative flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-sky-500/10 border border-sky-500/20 text-sky-400 flex items-center justify-center text-2xl mb-6">
+              🏞️
+            </div>
+            <h3 class="text-white font-bold text-xl mb-3">Decantação & Sedimentação</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">
+              Separação gravimétrica dos flocos no fundo dos tanques de decantação, reduzindo drasticamente a turbidez da água.
+            </p>
+          </div>
+          <div class="mt-8 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs">
+            <span class="text-sky-400 font-semibold">Clarificação</span>
+            <span class="text-slate-500">ETA Etapa 2</span>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="glass-card p-8 rounded-3xl relative flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 flex items-center justify-center text-2xl mb-6">
+              🪨
+            </div>
+            <h3 class="text-white font-bold text-xl mb-3">Filtração Multicamadas & Carvão</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">
+              Passagem da água por camadas de areia, cascalho e carvão ativado para retenção de micropartículas e absorção de sabores e odores.
+            </p>
+          </div>
+          <div class="mt-8 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs">
+            <span class="text-indigo-400 font-semibold">Filtração Física</span>
+            <span class="text-slate-500">ETA Etapa 3</span>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="glass-card p-8 rounded-3xl relative flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center text-2xl mb-6">
+              ✨
+            </div>
+            <h3 class="text-white font-bold text-xl mb-3">Desinfecção, Cloração & Fluoretação</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">
+              Aplicação de cloro residual livre para eliminação de patógenos (vírus e bactérias) e adição de flúor para proteção da saúde bucal.
+            </p>
+          </div>
+          <div class="mt-8 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs">
+            <span class="text-emerald-400 font-semibold">Potabilização Final</span>
+            <span class="text-slate-500">ETA Etapa 4</span>
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="glass-card p-8 rounded-3xl relative flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center text-2xl mb-6">
+              🌱
+            </div>
+            <h3 class="text-white font-bold text-xl mb-3">Tratamento Biológico de Esgoto (ETE)</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">
+              Uso de microrganismos benéficos em tanques de lodos ativados para degradar a matéria orgânica dos efluentes antes do descarte nos rios.
+            </p>
+          </div>
+          <div class="mt-8 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs">
+            <span class="text-amber-400 font-semibold">Depuração Biológica</span>
+            <span class="text-slate-500">Gestão ETE</span>
+          </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="glass-card p-8 rounded-3xl relative flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 flex items-center justify-center text-2xl mb-6">
+              ♻️
+            </div>
+            <h3 class="text-white font-bold text-xl mb-3">Reúso de Água & Membranas</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">
+              Processos avançados de ultrafiltração e osmose reversa para reciclagem de água e aproveitamento em processos industriais e lavagens.
+            </p>
+          </div>
+          <div class="mt-8 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs">
+            <span class="text-cyan-400 font-semibold">Economia Circular</span>
+            <span class="text-slate-500">Sustentabilidade</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SIMULADOR INTERATIVO DE POTABILIDADE DA ÁGUA -->
+  <section id="simulador" class="py-24 border-b border-slate-900 bg-slate-950/40">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="glass-card p-8 md:p-12 rounded-3xl border border-teal-500/20 relative aqua-glow">
+        <div class="text-center max-w-2xl mx-auto mb-10">
+          <span class="text-xs font-bold text-teal-400 uppercase tracking-widest">Ferramenta Interativa</span>
+          <h2 class="font-display text-3xl font-bold text-white mt-2">Simulador de Parâmetros de Potabilidade</h2>
+          <p class="text-xs text-slate-400 mt-2">Ajuste os seletores abaixo e simule o enquadramento da água nos limites da Portaria de Potabilidade.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8 items-center">
+          <div class="space-y-5 text-sm">
+            <div>
+              <div class="flex justify-between text-xs text-slate-300 font-semibold mb-1">
+                <span>Potencial Hidrogeniônico (pH)</span>
+                <span id="phVal" class="text-teal-400 font-mono">7.2</span>
+              </div>
+              <input type="range" id="phRange" min="4" max="11" step="0.1" value="7.2" oninput="validarAgua()" class="w-full accent-teal-500 bg-slate-900 rounded-lg cursor-pointer">
+              <span class="text-[10px] text-slate-500">Faixa ideal: 6.5 a 9.5</span>
+            </div>
+
+            <div>
+              <div class="flex justify-between text-xs text-slate-300 font-semibold mb-1">
+                <span>Turbidez (uNT)</span>
+                <span id="turbVal" class="text-teal-400 font-mono">1.2 uNT</span>
+              </div>
+              <input type="range" id="turbRange" min="0.1" max="10" step="0.1" value="1.2" oninput="validarAgua()" class="w-full accent-teal-500 bg-slate-900 rounded-lg cursor-pointer">
+              <span class="text-[10px] text-slate-500">Limite máximo recomendado: 5.0 uNT</span>
+            </div>
+
+            <div>
+              <div class="flex justify-between text-xs text-slate-300 font-semibold mb-1">
+                <span>Cloro Residual Livre (mg/L)</span>
+                <span id="cloroVal" class="text-teal-400 font-mono">1.5 mg/L</span>
+              </div>
+              <input type="range" id="cloroRange" min="0" max="4" step="0.1" value="1.5" oninput="validarAgua()" class="w-full accent-teal-500 bg-slate-900 rounded-lg cursor-pointer">
+              <span class="text-[10px] text-slate-500">Faixa recomendada: 0.2 a 2.0 mg/L</span>
+            </div>
+          </div>
+
+          <div class="bg-slate-950 p-6 rounded-2xl border border-slate-800 text-center space-y-4">
+            <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider block">Resultado da Análise Química Simulada</span>
+            <span id="statusAgua" class="text-2xl font-extrabold font-display text-teal-400 block">Água Própria para Consumo</span>
+            <div id="detalhesStatus" class="pt-4 border-t border-slate-800 text-xs text-slate-400 space-y-2 text-left">
+              <p>• pH: <span class="text-teal-400 font-semibold">Dentro do Padrão</span></p>
+              <p>• Turbidez: <span class="text-teal-400 font-semibold">Límpida & Transparente</span></p>
+              <p>• Desinfecção: <span class="text-teal-400 font-semibold">Protegida contra Patógenos</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCANNER DE DIAGNÓSTICO DOMÉSTICO (CHECKLIST INTERATIVO) -->
+  <section id="scanner" class="py-24 border-b border-slate-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-10">
+        <span class="text-xs font-bold text-teal-400 uppercase tracking-widest">Verificação Prática</span>
+        <h2 class="font-display text-3xl font-bold text-white mt-2">Scanner de Qualidade do Reservatório Residencial</h2>
+        <p class="text-slate-400 text-sm mt-2">Marque os itens observados na sua caixa d'água para checar se é hora de realizar higienização.</p>
+      </div>
+
+      <div class="glass-card p-8 rounded-3xl space-y-4">
+        <!-- BARRA DE PROGRESSO -->
+        <div class="mb-6">
+          <div class="flex justify-between text-xs text-slate-400 mb-2">
+            <span>Nível de Risco Registrado</span>
+            <span id="progressPercent" class="text-teal-400 font-bold">0%</span>
+          </div>
+          <div class="w-full h-2 bg-slate-900 rounded-full overflow-hidden">
+            <div id="progressBar" class="h-full bg-gradient-to-r from-teal-500 via-sky-400 to-rose-500 w-0 transition-all duration-300"></div>
+          </div>
+        </div>
+
+        <!-- LISTA CHECKLIST -->
+        <label class="flex items-center gap-4 p-4 rounded-2xl bg-slate-950/60 border border-slate-800 cursor-pointer hover:border-teal-500/40 transition-all">
+          <input type="checkbox" onchange="updateProgress()" class="check-item w-5 h-5 rounded accent-teal-500">
+          <span class="text-slate-300 text-sm">Coloração amarelada, marrom ou presença de ferrugem ao abrir torneiras.</span>
+        </label>
+
+        <label class="flex items-center gap-4 p-4 rounded-2xl bg-slate-950/60 border border-slate-800 cursor-pointer hover:border-teal-500/40 transition-all">
+          <input type="checkbox" onchange="updateProgress()" class="check-item w-5 h-5 rounded accent-teal-500">
+          <span class="text-slate-300 text-sm">Odor característico de barro, mofo ou cloro excessivo percebido na água da torneira.</span>
+        </label>
+
+        <label class="flex items-center gap-4 p-4 rounded-2xl bg-slate-950/60 border border-slate-800 cursor-pointer hover:border-teal-500/40 transition-all">
+          <input type="checkbox" onchange="updateProgress()" class="check-item w-5 h-5 rounded accent-teal-500">
+          <span class="text-slate-300 text-sm">Presença de película viscosa (biofilme) ou sedimentos no fundo da caixa d'água.</span>
+        </label>
+
+        <label class="flex items-center gap-4 p-4 rounded-2xl bg-slate-950/60 border border-slate-800 cursor-pointer hover:border-teal-500/40 transition-all">
+          <input type="checkbox" onchange="updateProgress()" class="check-item w-5 h-5 rounded accent-teal-500">
+          <span class="text-slate-300 text-sm">Caixa d'água sem lavagem técnica ou desinfecção por período superior a 6 meses.</span>
+        </label>
+
+        <label class="flex items-center gap-4 p-4 rounded-2xl bg-slate-950/60 border border-slate-800 cursor
